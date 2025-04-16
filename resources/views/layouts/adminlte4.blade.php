@@ -321,7 +321,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="./index3.html" class="nav-link">
+                  <a href="{{ url('/daftarorder') }}" class="nav-link active">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>Daftar Order</p>
                     </a>
