@@ -8,22 +8,16 @@
             <thead class="thead-dark">
                 <tr>
                     <th>#</th>
-                    <th>Name</th>
-                    <th>Category Name</th>
-                    <th>Description</th>
-                    <th>Nutrition Fact</th>
-                    <th>Price</th>
+                    <th>Customer Name</th>
+                    <th>Total Order</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($foods as $f)
+                @foreach ($customers as $c)
                     <tr>
-                        <td>{{ $f->id }}</td>
-                        <td><a href="{{ route('listmakanan.show', $f->id) }}">{{ $f->name }}</a></td>
-                        <td>{{ $f->category->name }}</td>
-                        <td>{{ $f->description }}</td>
-                        <td>{{ $f->nutrition_fact }}</td>
-                        <td>{{ $f->price }}</td>
+                        <td>{{ $c->id }}</td>
+                        <td><a {{ route('datapelanggan.show', $c->id) }}>{{ $c->name }}</a></td>
+                        <td>{{ $c->orders->count() }}</td> {{-- hitung jumlah order --}}
                     </tr>
                 @endforeach
             </tbody>
