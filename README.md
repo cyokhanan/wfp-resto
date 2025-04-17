@@ -33,33 +33,39 @@ WFP Resto adalah aplikasi sistem pemesanan makanan berbasis web menggunakan Lara
    cd wfp_resto
    
 2. **Install dependency:**
+      ```bash
     composer install
    
-3. **Copy file .env:**
+4. **Copy file .env:**
+      ```bash
     cp .env.example .env
 
-4. **Atur konfigurasi database di file .env:**
+6. **Atur konfigurasi database di file .env:**
+      ```bash
     DB_DATABASE=wfp_resto
     DB_USERNAME=root
     DB_PASSWORD=
    
-5. **Generate app key:**
+7. **Generate app key:**
+      ```bash
     php artisan key:generate
 
-6. **Jalankan migrasi & seeder:**
+8. **Jalankan migrasi & seeder:**
+      ```bash
     php artisan migrate --seed
 
-7. **Jalankan server lokal:**
+9. **Jalankan server lokal:**
+      ```bash
     php artisan serve
 
-8. Buka http://localhost:8000 di browser.
+10. Buka http://localhost:8000 di browser.
 
 ## 📁 Struktur Database
-    categories: data kategori makanan
-    foods: data makanan
-    customers: data pelanggan
-    orders: data pemesanan makanan
-    Relasi: foods.category_id, orders.food_id, orders.customer_id
+categories: data kategori makanan
+foods: data makanan
+customers: data pelanggan
+orders: data pemesanan makanan
+Relasi: foods.category_id, orders.food_id, orders.customer_id
 
 ## 📃 Lisensi
 Proyek ini bebas digunakan untuk keperluan pembelajaran. Silakan fork dan kembangkan lebih lanjut! ❤️
