@@ -21,12 +21,9 @@
                                                                                     @php
                                                                                         $modalId = 'foodModal_' . $cf->id;
                                                                                     @endphp
-
-                                                                                    <!-- Trigger Link -->
                                                                                     <a href="#" data-bs-toggle="modal" data-bs-target="#{{ $modalId }}">
                                                                                         {{ $cf->name }}.
                                                                                     </a>
-
                                                                                     <!-- Modal -->
                                                                                     @push('modal')
                                                                                         <div class="modal fade" id="{{ $modalId }}" tabindex="-1"
