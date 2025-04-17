@@ -9,12 +9,18 @@ class Order extends Model
 {
     use HasFactory;
 
-    public function user(){
+    protected $fillable = [
+        'user_id',
+        // Tambahkan kolom lain jika ada
+    ];
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function foods(){
-        return $this->belongsToMany(Food::class);
+    public function foods()
+    {
+        return $this->belongsToMany(Food::class)->withTimestamps();
     }
-
 }
