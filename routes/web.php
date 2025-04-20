@@ -72,3 +72,11 @@ Route::get('admin/members', function () {
     return view('adminmembers');
 })-> name('members');
 
+
+
+use App\Models\Food;
+
+Route::get('/', function () {
+    $foods = Food::with('category')->get();
+    return view('home', compact('foods'));
+});
