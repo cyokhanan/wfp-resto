@@ -26,19 +26,19 @@ class FoodSeeder extends Seeder
             ['name' => 'Garlic Bread', 'nutrition_fact' => 'Kalori: 150-200 kkal', 'description' => 'Roti dengan mentega dan bawang putih.', 'price' => 15000, 'category_id' => 1, 'created_at' => $now, 'updated_at' => $now],
             // Main Course
             [
-                'name' => 'Nasi Merah dengan Ayam Panggang Kecap & Tumis Kangkung',
-                'nutrition_fact' => 'Kalori: 400-550 kkal Protein: 30-40 gram Lemak: 15-25 gram Karbohidrat: 50-70 gram Serat: 5-8 gram',
-                'description' => 'Nikmati hidangan sehat dan lezat dengan Nasi Merah yang kaya serat, dipadukan dengan Ayam Panggang Kecap & Tumis Kangkung.',
+                'name' => 'Chicken Teriyaki Rice Bowl',
+                'nutrition_fact' => 'Kalori: 500-600 kkal Protein: 30-40 gram Lemak: 15-20 gram Karbohidrat: 60-70 gram Serat: 3-5 gram',
+                'description' => 'Nasi hangat disajikan dengan ayam teriyaki gurih dan sayuran.',
                 'price' => 35000,
                 'category_id' => 2,
                 'created_at' => $now,
                 'updated_at' => $now
             ],
             [
-                'name' => 'Nasi Hitam dan Tumis Ca Kailan',
-                'nutrition_fact' => 'Kalori: 400-550 kkal Protein: 30-40 gram Lemak: 15-25 gram Karbohidrat: 50-70 gram Serat: 5-8 gram',
-                'description' => 'Nikmati hidangan sehat dan lezat dengan Nasi Hitam yang kaya serat.',
-                'price' => 30000,
+                'name' => 'Spaghetti Bolognese',
+                'nutrition_fact' => 'Kalori: 450-550 kkal Protein: 25-35 gram Lemak: 15-20 gram Karbohidrat: 55-70 gram Serat: 4-6 gram',
+                'description' => 'Spaghetti dengan saus daging cincang khas Italia.',
+                'price' => 32000,
                 'category_id' => 2,
                 'created_at' => $now,
                 'updated_at' => $now

@@ -7,15 +7,15 @@
             <h5 class="mb-0">Tambah Order</h5>
         </div>
         <div class="card-body">
-            <form action="{{ route('orders.store') }}" method="POST">
+            <form action="{{ route('daftarorder.store') }}" method="POST">
                 @csrf
 
                 <div class="mb-3">
-                    <label for="user_id" class="form-label">User</label>
-                    <select name="user_id" id="user_id" class="form-select" required>
-                        <option value="">-- Pilih User --</option>
-                        @foreach($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    <label for="customer_id" class="form-label">Customer</label>
+                    <select name="customer_id" id="customer_id" class="form-select" required>
+                        <option value="">-- Pilih Customer --</option>
+                        @foreach($customers as $customer)
+                            <option value="{{ $customer->id }}">{{ $customer->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -31,7 +31,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-success">Simpan</button>
-                <a href="{{ route('orders.index') }}" class="btn btn-secondary">Batal</a>
+                <a href="{{ route('daftarorder.index') }}" class="btn btn-secondary">Batal</a>
             </form>
         </div>
     </div>

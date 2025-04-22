@@ -7,20 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    use HasFactory;
+    protected $fillable = ['customer_id'];
 
-    protected $fillable = [
-        'user_id',
-        // Tambahkan kolom lain jika ada
-    ];
-
-    public function user()
+    public function customer()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Customer::class);
     }
+
 
     public function foods()
     {
-        return $this->belongsToMany(Food::class)->withTimestamps();
-    }
+        return $this->belongsToMany(Food::class, 'order_foods');
+    } // pakai order_foods, bukan food_order default-nya laravel
 }

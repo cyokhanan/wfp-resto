@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User; // Ditambahkan untuk mempersingkat "User::factory"
 use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
@@ -18,9 +17,6 @@ class DatabaseSeeder extends Seeder
         // Menonaktifkan pengecekan foreign key sementara
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
 
-        // Membuat 10 user menggunakan factory
-        User::factory(10)->create();
-
         // Jalankan seeder untuk tabel terkait
         $this->call(CategorySeeder::class);
         $this->call(FoodSeeder::class);
@@ -29,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OrderFoodSeeder::class);
         $this->call(FoodOrderRevenueSeeder::class);
         $this->call(OrderStatusSeeder::class);
+        $this->call(FoodImageSeeder::class);
 
         // Menyalakan kembali pengecekan foreign key
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');

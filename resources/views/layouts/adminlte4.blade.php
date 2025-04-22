@@ -75,12 +75,12 @@
                 <i class="bi bi-list"></i>
               </a>
             </li>
-            <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Home</a></li>
+            <li class="nav-item d-none d-md-block"><a href="/" class="nav-link">Home</a></li>
             <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Contact</a></li>
           </ul>
           <!--end::Start Navbar Links-->
           <!--begin::End Navbar Links-->
-          <ul class="navbar-nav ms-auto">
+          {{-- <ul class="navbar-nav ms-auto">
             <!--begin::Navbar Search-->
             <li class="nav-item">
               <a class="nav-link" data-widget="navbar-search" href="#" role="button">
@@ -257,44 +257,42 @@
               </ul>
             </li>
             <!--end::User Menu Dropdown-->
-          </ul>
+          </ul> --}}
           <!--end::End Navbar Links-->
         </div>
         <!--end::Container-->
       </nav>
       <!--end::Header-->
+
       <!--begin::Sidebar-->
       <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
         <!--begin::Sidebar Brand-->
-        <div class="sidebar-brand">
+        <div class="sidebar-brand" style="height: 80px; width: auto; background-color: black;">
           <!--begin::Brand Link-->
-          <a href="./index.html" class="brand-link">
+          <a href="/" class="brand-link">
             <!--begin::Brand Image-->
             <img
-              src="{{ asset('adminlte4/img/AdminLTELogo.png') }}"
-              alt="AdminLTE Logo"
-              class="brand-image opacity-75 shadow"
-            />
+              src="{{ asset('adminlte4/img/logo.jpeg') }}"
+              alt="AdminLTE Logo" style="height: 70px; width: auto;"/>
             <!--end::Brand Image-->
             <!--begin::Brand Text-->
-            <span class="brand-text fw-light">Rivi Resto</span>
+            <span class="brand-text fw-light">Rivi Food</span>
             <!--end::Brand Text-->
           </a>
           <!--end::Brand Link-->
         </div>
         <!--end::Sidebar Brand-->
         <!--begin::Sidebar Wrapper-->
-        <div class="sidebar-wrapper">
+        <div class="sidebar-wrapper" style="background-color: black;">
           <nav class="mt-2">
             <!--begin::Sidebar Menu-->
             <ul
               class="nav sidebar-menu flex-column"
               data-lte-toggle="treeview"
               role="menu"
-              data-accordion="false"
-            >
-              <li class="nav-item menu-open">
-                <a href="#" class="nav-link active">
+              data-accordion="false">
+              <li class="nav-item {{ Request::is('listmakanan', 'daftarmenu', 'datapelanggan', 'daftarorder') ? 'menu-open' : '' }}">
+                <a href="#" class="nav-link {{ Request::is('listmakanan', 'daftarmenu', 'datapelanggan', 'daftarorder') ? 'active' : '' }}">
                   <i class="bi bi-basket3-fill"></i>
                   <p>
                     Menu
@@ -303,25 +301,25 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="{{ url('/listmakanan') }}" class="nav-link active">
+                    <a href="{{ url('/listmakanan') }}" class="nav-link {{ Request::is('listmakanan') ? 'active' : '' }}">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>Daftar Makanan</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="{{ url('/daftarmenu') }}" class="nav-link">
+                    <a href="{{ url('/daftarmenu') }}" class="nav-link {{ Request::is('daftarmenu') ? 'active' : '' }}">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>Daftar Kategori</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                  <a href="{{ url('/datapelanggan') }}" class="nav-link active">
+                    <a href="{{ url('/datapelanggan') }}" class="nav-link {{ Request::is('datapelanggan') ? 'active' : '' }}">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>Daftar Pelanggan</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                  <a href="{{ url('/daftarorder') }}" class="nav-link active">
+                    <a href="{{ url('/daftarorder') }}" class="nav-link {{ Request::is('daftarorder') ? 'active' : '' }}">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>Daftar Order</p>
                     </a>
@@ -343,12 +341,12 @@
       <!--begin::Footer-->
       <footer class="app-footer">
         <!--begin::To the end-->
-        <div class="float-end d-none d-sm-inline">Anything you want</div>
+        {{-- <div class="float-end d-none d-sm-inline">Anything you want</div> --}}
         <!--end::To the end-->
         <!--begin::Copyright-->
         <strong>
-          Copyright &copy; 2014-2024&nbsp;
-          <a href="https://adminlte.io" class="text-decoration-none">AdminLTE.io</a>.
+          Copyright &copy; 2025&nbsp;
+          <a href="https://github.com/Azura1000/wfp-resto" class="text-decoration-none">Rivi Food</a>.
         </strong>
         All rights reserved.
         <!--end::Copyright-->

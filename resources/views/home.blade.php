@@ -1,18 +1,20 @@
-
-@extends('layouts.app')
+@extends('layouts.adminlte4')
 
 @section('content')
-<div class="container text-center my-5">
-    <h1 class="text-4xl font-bold mb-4">Produk Kami</h1>
-    <p class="mb-6 text-lg text-gray-700">Nikmati berbagai pilihan makanan lezat yang kami sajikan khusus untuk Anda!</p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+<div class="container my-5">
+    <h1 class="text-center mb-4">Produk Kami</h1>
+    <p class="text-center mb-5">Nikmati berbagai pilihan makanan lezat yang kami sajikan khusus untuk Anda!</p>
+
+    <div class="row">
         @foreach ($foods as $food)
-        <div class="bg-white rounded-2xl shadow-md overflow-hidden">
-            <img src="{{ asset('storage/' . $food->image) }}" alt="{{ $food->name }}" class="w-full h-48 object-cover">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">{{ $food->name }}</h2>
-                <p class="text-gray-600">{{ $food->category->name }}</p>
-                <p class="text-red-500 font-bold mt-2">Rp {{ number_format($food->price, 0, ',', '.') }}</p>
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img src="{{ asset('storage/' . $food->image) }}" class="card-img-top" alt="{{ $food->name }}" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $food->name }}</h5>
+                    <p class="card-text text-muted">{{ $food->category->name }}</p>
+                    <p class="card-text text-danger fw-bold">Rp {{ number_format($food->price, 0, ',', '.') }}</p>
+                </div>
             </div>
         </div>
         @endforeach

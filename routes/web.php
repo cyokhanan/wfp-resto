@@ -5,6 +5,7 @@ use App\Http\Controllers\FoodController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
+use App\Models\Food;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,10 +72,6 @@ Route::get('admin/order', function () {
 Route::get('admin/members', function () {
     return view('adminmembers');
 })-> name('members');
-
-
-
-use App\Models\Food;
 
 Route::get('/', function () {
     $foods = Food::with('category')->get();
