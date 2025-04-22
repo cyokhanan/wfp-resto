@@ -17,9 +17,6 @@ return new class extends Migration
             $table->timestamp('order_date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->enum('status', ['pending', 'completed', 'canceled', 'processing'])->default('pending');
             $table->foreignId('customer_id')->constrained('customers');
-            $table->foreignId('food_id')->constrained('foods');
-            $table->integer('quantity')->default(1);
-            $table->double('total_price', 8, 2);
             $table->timestamps();
         });
     }
