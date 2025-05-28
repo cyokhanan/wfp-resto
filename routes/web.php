@@ -33,7 +33,9 @@ Route::get('/', function () {
 Route::resource('foods', FoodController::class);
 
 // category
-Route::resource('listcategories', CategoryController::class);
+Route::resource('listcategories', CategoryController::class)->parameters([
+    'listcategories' => 'category',
+]);
 
 // customer
 Route::resource('customers', controller: CustomerController::class);
