@@ -14,7 +14,10 @@ class Food extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
-    public function category():BelongsTo {
+    protected $fillable = ['name', 'category_id', 'description', 'nutrition_fact', 'price', 'image'];
+
+    public function category(): BelongsTo
+    {
         return $this->belongsTo(Category::class, 'category_id');
     }
 }

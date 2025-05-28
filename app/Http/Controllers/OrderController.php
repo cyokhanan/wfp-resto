@@ -29,18 +29,22 @@ class OrderController extends Controller
             'food_ids' => 'required|array',
             'food_ids.*' => 'exists:foods,id',
         ]);
+
         $order = Order::create([
             'customer_id' => $request->customer_id,
         ]);
+
         $order->foods()->attach($request->food_ids);
+
         return redirect()->route('orders.index')->with('success', 'Order berhasil dibuat.');
     }
 
-    public function show(Order $order, $id)
+    public function show(Customer $customer)
     {
-        $customer = Customer::with('orders.foods')->findOrFail($id);
+        $customer->load('orders.foods');
         return view('orders.show', compact('customer'));
     }
+
 
     public function edit(Order $order)
     {
@@ -57,8 +61,10 @@ class OrderController extends Controller
             'food_ids' => 'required|array',
             'food_ids.*' => 'exists:foods,id',
         ]);
+
         $order->update(['customer_id' => $request->customer_id]);
         $order->foods()->sync($request->food_ids);
+
         return redirect()->route('orders.index')->with('success', 'Order berhasil diperbarui.');
     }
 
@@ -66,6 +72,7 @@ class OrderController extends Controller
     {
         $order->foods()->detach();
         $order->delete();
+
         return redirect()->route('orders.index')->with('success', 'Order berhasil dihapus.');
     }
 }

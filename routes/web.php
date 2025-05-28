@@ -23,20 +23,24 @@ Route::get('/', function () {
     return view('index');
 });
 
-// coba
-Route::view('/coba', view: 'index');
+// home
+Route::get('/', function () {
+    $foods = Food::with('category')->get();
+    return view('home', compact('foods'));
+});
 
 // food
-Route::resource('listmakanan', FoodController::class);
+Route::resource('foods', FoodController::class);
 
 // category
-Route::resource('daftarmenu', CategoryController::class);
+Route::resource('listcategories', CategoryController::class);
 
 // customer
-Route::resource('datapelanggan', CustomerController::class);
+Route::resource('customers', controller: CustomerController::class);
+Route::get('/orders/{customer}', [OrderController::class, 'show'])->name('orders.show');
 
 // order
-Route::resource('daftarorder', OrderController::class);
+Route::resource('orders', OrderController::class);
 
 //BASE_URL/welcome
 Route::get('/welcome', function () {
@@ -59,9 +63,9 @@ Route::get('/menu/{method}', function ($method) {
 })->name('menu');
 
 //BASE_URL/admin/categories/
-Route::get('admin/categories', function () {
-    return view('admincategories');
-})-> name(name: 'categories');
+// Route::get('admin/categories', function () {
+//     return view('admincategories');
+// })-> name(name: 'categories');
 
 //BASE_URL/admin/order
 Route::get('admin/order', function () {
@@ -72,8 +76,3 @@ Route::get('admin/order', function () {
 Route::get('admin/members', function () {
     return view('adminmembers');
 })-> name('members');
-
-Route::get('/', function () {
-    $foods = Food::with('category')->get();
-    return view('home', compact('foods'));
-});

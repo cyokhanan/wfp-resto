@@ -13,7 +13,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::with('foods')->get();
-        return view('categories.index', ['categories' => $categories]);
+        return view('categories.index', compact('categories'));
     }
 
     /**
@@ -21,7 +21,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('categories.create', compact('categories'));
     }
 
     /**
@@ -29,7 +30,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+        $data = new Category();
+        $data->name = $request->get('name');
+        $data->save();
+
+        return redirect()->route('listcategories.index')->with('success', 'Kategori berhasil ditambahkan.');
     }
 
     /**
@@ -45,7 +54,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categories.edit', compact('category'));
     }
 
     /**
@@ -53,7 +62,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+        $category->name = $request->get('name');
+        $category->save();
+
+        return redirect()->route('listcategories.index')->with('success', 'Kategori berhasil diperbarui.');
     }
 
     /**
@@ -61,6 +77,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('listcategories.index')->with('success', 'Kategori berhasil dihapus.');
     }
 }
